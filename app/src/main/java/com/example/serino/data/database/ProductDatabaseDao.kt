@@ -5,15 +5,14 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.example.serino.data.model.DomainProduct
-import kotlinx.coroutines.flow.Flow
+import com.example.serino.data.model.DatabaseProduct
 
 @Dao
 interface ProductDatabaseDao {
 
     @Insert(onConflict = REPLACE)
-    suspend fun insert(product: DomainProduct)
+    suspend fun insertAll(products: List<DatabaseProduct>)
 
-    @Query("SELECT * FROM product_database")
-    fun getAll(): Flow<List<DomainProduct>>
+    @Query("SELECT * FROM databaseproduct")
+    fun getAll(): LiveData<List<DatabaseProduct>>
 }

@@ -16,9 +16,9 @@ data class NetworkProduct(
     val images: List<String>,
 )
 
-fun NetworkProductContainer.asDatabaseModel(): List<DomainProduct> {
+fun NetworkProductContainer.asDatabaseModel(): List<DatabaseProduct> {
     return products.map {
-        DomainProduct(
+        DatabaseProduct(
             id = it.id,
             title = it.title
         )

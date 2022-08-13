@@ -20,6 +20,6 @@
         tools:layout="@layout/fragment_product" >
         <argument
             android:name="item"
-            app:argType="com.example.serino.data.model.DomainProduct" />
+            app:argType="com.example.serino.data.model.Product" />
     </fragment>
 </navigation>

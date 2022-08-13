@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.serino.R
-import com.example.serino.data.model.DomainProduct
+import com.example.serino.data.model.Product
 import com.example.serino.databinding.FragmentHomeBinding
 import com.example.serino.presentation.binding.SimpleDataBindingPresenter
 import com.example.serino.presentation.ui.BaseFragment
@@ -44,7 +44,7 @@ class HomeFragment : BaseFragment() {
         productListAdapter = ProductListAdapter(
             object : SimpleDataBindingPresenter() {
                 override fun onClick(view: View, item: Any) {
-                    if (item is DomainProduct) {
+                    if (item is Product) {
                         navigate(HomeFragmentDirections.actionHomeFragmentToProductFragment(item))
                     }
                 }
