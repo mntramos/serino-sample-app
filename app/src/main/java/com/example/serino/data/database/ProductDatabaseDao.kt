@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
 import com.example.serino.data.model.DomainProduct
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductDatabaseDao {
@@ -14,5 +15,5 @@ interface ProductDatabaseDao {
     suspend fun insert(product: DomainProduct)
 
     @Query("SELECT * FROM product_database")
-    fun getAll(): LiveData<List<DomainProduct>>
+    fun getAll(): Flow<List<DomainProduct>>
 }

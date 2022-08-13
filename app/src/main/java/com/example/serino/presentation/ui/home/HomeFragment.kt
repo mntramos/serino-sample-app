@@ -12,7 +12,9 @@ import com.example.serino.databinding.FragmentHomeBinding
 import com.example.serino.presentation.binding.SimpleDataBindingPresenter
 import com.example.serino.presentation.ui.BaseFragment
 import com.example.serino.presentation.ui.product.ProductListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragment() {
 
     private lateinit var binding: FragmentHomeBinding

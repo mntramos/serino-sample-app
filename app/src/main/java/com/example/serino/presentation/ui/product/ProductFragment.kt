@@ -9,7 +9,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.serino.R
 import com.example.serino.databinding.FragmentProductBinding
 import com.example.serino.presentation.ui.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProductFragment : BaseFragment() {
 
     private lateinit var binding: FragmentProductBinding

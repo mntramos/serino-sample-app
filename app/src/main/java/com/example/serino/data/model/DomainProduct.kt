@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 data class DomainProduct(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
-    val name: String = "",
+    val title: String = "",
 ): Parcelable
 
 //fun DomainProduct.asDatabaseModel(): DatabaseProduct {
