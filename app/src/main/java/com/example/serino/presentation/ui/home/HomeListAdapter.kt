@@ -1,4 +1,4 @@
-package com.example.serino.presentation.ui.product
+package com.example.serino.presentation.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +9,9 @@ import com.example.serino.data.model.Product
 import com.example.serino.databinding.ProductListItemBinding
 import com.example.serino.presentation.binding.DataBindingPresenter
 
-class ProductListAdapter(
+class HomeListAdapter(
     private val presenter: DataBindingPresenter? = null,
-) : ListAdapter<Product, ProductListAdapter.ViewHolder>(DiffCallback) {
+) : ListAdapter<Product, HomeListAdapter.ViewHolder>(DiffCallback) {
 
     class ViewHolder(private val binding: ProductListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -25,7 +25,7 @@ class ProductListAdapter(
         companion object {
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ProductListItemBinding.inflate(layoutInflater)
+                val binding = ProductListItemBinding.inflate(layoutInflater, parent, false)
 
                 return ViewHolder(binding)
             }

@@ -4,11 +4,15 @@ import com.example.serino.data.model.NetworkProductContainer
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface ProductApiService {
 
     @GET("products")
-    suspend fun getProducts(): NetworkProductContainer
+    suspend fun getProducts(
+        @Query("skip") skip: Int,
+        @Query("limit") limit: Int
+    ): NetworkProductContainer
 
     companion object {
         private const val BASE_URL = "https://dummyjson.com/"

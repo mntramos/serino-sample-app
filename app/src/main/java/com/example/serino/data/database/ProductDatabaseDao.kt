@@ -15,4 +15,7 @@ interface ProductDatabaseDao {
 
     @Query("SELECT * FROM databaseproduct")
     fun getAll(): LiveData<List<DatabaseProduct>>
+
+    @Query("DELETE FROM databaseproduct")
+    fun nukeTable()
 }
