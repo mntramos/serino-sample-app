@@ -5,13 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.PagingData
-import androidx.paging.cachedIn
-import com.example.serino.data.model.NetworkProduct
 import com.example.serino.data.model.Product
 import com.example.serino.data.repository.ProductRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -38,9 +34,7 @@ class MainViewModel @Inject constructor(
 
     init {
 //        clearDatabase()
-//        if (_productList.value.isNullOrEmpty()) {
         getProducts()
-//        }
     }
 
     fun setCurrentProduct(product: Product) {
@@ -53,10 +47,10 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getProducts() {
+    fun getProducts(skip: Int = 0) {
         viewModelScope.launch {
             try {
-                productRepository.getProducts()
+                productRepository.getProducts(skip)
             } catch (e: Exception) {
                 Log.e("MainViewModel", "$e")
                 _isError.value = e.message
@@ -64,14 +58,5 @@ class MainViewModel @Inject constructor(
                 _isLoading.value = false
             }
         }
-    }
-
-    private var currentResult: Flow<PagingData<NetworkProduct>>? = null
-    fun getProducts2(): Flow<PagingData<NetworkProduct>> {
-        _isLoading.value = false
-        val newResult: Flow<PagingData<NetworkProduct>> =
-            productRepository.getApiResultStream().cachedIn(viewModelScope)
-        currentResult = newResult
-        return newResult
     }
 }

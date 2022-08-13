@@ -5,7 +5,6 @@ buildscript {
         version_hilt = '2.43.2'
         version_lifecycle = '2.5.1'
         version_navigation = '2.4.2'
-        version_paging = '3.1.1'
         version_retrofit = '2.9.0'
         version_room = '2.4.3'
     }

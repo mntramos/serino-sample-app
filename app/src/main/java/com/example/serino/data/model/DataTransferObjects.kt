@@ -1,8 +1,5 @@
 package com.example.serino.data.model
 
-import com.example.serino.presentation.util.smartTruncate
-import kotlinx.parcelize.IgnoredOnParcel
-
 data class NetworkProductContainer(
     val products: List<NetworkProduct>,
     val total: Int,
@@ -20,10 +17,7 @@ data class NetworkProduct(
     val category: String,
     val thumbnail: String,
     val images: List<String>,
-) {
-    //TODO: remove
-    val shortDescription = description.smartTruncate(100)
-}
+)
 
 fun NetworkProductContainer.asDatabaseModel(): List<DatabaseProduct> {
     return products.map {

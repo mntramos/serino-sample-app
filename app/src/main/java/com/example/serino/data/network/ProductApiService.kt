@@ -10,8 +10,8 @@ interface ProductApiService {
 
     @GET("products")
     suspend fun getProducts(
-        @Query("skip") skip: Int,
-        @Query("limit") limit: Int
+        @Query("skip") skip: Int? = null,
+        @Query("limit") limit: Int? = 10
     ): NetworkProductContainer
 
     companion object {

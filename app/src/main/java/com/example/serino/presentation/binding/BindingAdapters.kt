@@ -1,6 +1,5 @@
 package com.example.serino.presentation.binding
 
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.view.isGone
